@@ -55,7 +55,7 @@ function getKey() {
 }
 
 function finalEscape() {
-  window.location.href = "https://y5pd9h.csb.app/";
+  window.location.href = "https://1o-o7.github.io/FinalDecisionRoom-JV/";
 }
 
 // Modals
@@ -97,3 +97,4 @@ function checkSymbols() {
     console.log("locked");
   }
 }
+
