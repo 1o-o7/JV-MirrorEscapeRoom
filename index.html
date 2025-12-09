@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mirror Escape</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- inside the body you have your normal layout -->
+    <div class="row1 black">
+      <div class="rect">
+        <img
+          src="images/mirror-1.png"
+          class="cover-image purple-click"
+          onclick="playMirror(); showElement('one');"
+        />
+      </div>
+      <div class="rect">
+        <img
+          src="images/mirror-1.png"
+          class="cover-image red-click"
+          onclick="playMirror(); showElement('two');"
+        />
+      </div>
+      <div class="rect">
+        <img
+          src="images/mirror-1.png"
+          class="cover-image grey-click"
+          onclick="playMirror(); showElement('three');"
+        />
+      </div>
+      <div class="rect">
+        <img
+          src="images/mirror-2.png"
+          class="cover-image blue-click"
+          onclick="playMirror(); showElement('four');"
+        />
+      </div>
+      <div class="rect">
+        <img
+          src="images/mirror-2.png"
+          class="cover-image grey-click"
+          onclick="playMirror(); showElement('five');"
+        />
+      </div>
+      <div class="rect">
+        <img
+          src="images/mirror-2.png"
+          class="cover-image purple-click"
+          onclick="playMirror(); showElement('six');"
+        />
+      </div>
+    </div>
+
+    <div class="row2 ground">
+      <div class="rect2 left">
+        <img
+          src="images/lockedBox.png"
+          class="contain-box clickk"
+          onclick="showElement('lock'); playLocked();"
+        />
+      </div>
+      <div class="box">
+        <img
+          src="images/inventory.png"
+          class="contain-icon clickk"
+          onclick="showElement('icon')"
+        />
+        <img src="images/helpNote.png" class="note-contain" />
+        <div
+          class="artInstruct black center-content clickk"
+          onclick="showElement('myModal')"
+        >
+          <text>Instructions</text>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialogue Modal-->
+    <div class="modal center-content" id="myModal">
+      <span
+        class="close"
+        id="closeBtn"
+        onclick="hideElement('myModal'); playSpooky();"
+        >&times;</span
+      >
+      <img src="images/instructions.png" class="dialogue" />
+      <img src="images/artWave.png" class="artLeft" />
+    </div>
+
+    <!-- Inventory Modal-->
+    <div class="modalTwo center-content" id="icon">
+      <span class="closeInventory" onclick="hideElement('icon')">&times;</span>
+      <div class="modal-inventory black">
+        <div class="columnModal blood">
+          <div class="inventoryBox black center-content">
+            <img src="images/trap.png" />
+          </div>
+          <div class="inventoryBox dark-grey center-content">
+            <img src="images/arts.png" />
+          </div>
+        </div>
+        <div class="columnModal blood">
+          <div class="inventoryBox dark-grey center-content">
+            <img src="images/funhouse.png" />
+          </div>
+          <div class="inventoryBox black center-content">
+            <img src="images/within.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lock Modal-->
+    <div class="modalMirror center-content" id="lock">
+      <span class="closeKey" onclick="hideElement('lock')">&times;</span>
+      <div class="modal-lock black">
+        <div class="rowModal">
+          <div class="boxModal light-grey center-content clickk" id="div1">
+            <img
+              src="images/skull.png"
+              class="contain-image"
+              id="symbol1"
+              onclick="changeSymbols(this)"
+            />
+          </div>
+          <div class="boxModal red center-content clickk" id="div2">
+            <img
+              src="images/skull.png"
+              class="contain-image"
+              id="symbol2"
+              onclick="changeSymbols(this)"
+            />
+          </div>
+          <div class="boxModal blue center-content clickk" id="div3">
+            <img
+              src="images/skull.png"
+              class="contain-image"
+              id="symbol3"
+              onclick="changeSymbols(this)"
+            />
+          </div>
+          <div class="boxModal purple center-content clickk" id="div4">
+            <img
+              src="images/skull.png"
+              class="contain-image"
+              id="symbol4"
+              onclick="changeSymbols(this)"
+            />
+          </div>
+        </div>
+        <div class="rowModal center-content">
+          <button class="unlock-btn" onclick="checkSymbols()">
+            <text>Check</text>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- key modal-->
+    <div class="modalMirror center-content" id="key">
+      <div class="modal-mirror black center-content">
+        <div class="rowModal center-content">
+          <text>You found the key!</text>
+        </div>
+        <div class="rowModal center-content">
+          <img
+            src="images/key.png"
+            class="contain-image clickk"
+            onclick="finalEscape()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- First Mirror-->
+    <div class="modalMirror center-content" id="one">
+      <span class="closeMirror" onclick="hideElement('one')">&times;</span>
+      <div class="modal-mirror black">
+        <div class="rowModal center-content">
+          <textMirror>FuNhoUsE </textMirror>
+        </div>
+
+        <div class="rowModal center-content">
+          <img src="images/balloon.png" class="contain-symbol purple" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Mirror-->
+    <div class="modalMirror center-content" id="two">
+      <span class="closeMirror" onclick="hideElement('two')">&times;</span>
+      <div class="modal-mirror black">
+        <div class="rowModal center-content">
+          <textMirror>WiTHIn</textMirror>
+        </div>
+
+        <div class="rowModal center-content">
+          <img src="images/bullseyee.png" class="contain-symbol blood" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Mirror-->
+    <div class="modalMirror center-content" id="three">
+      <span class="closeMirror" onclick="hideElement('three')">&times;</span>
+      <div class="modal-mirror black">
+        <div class="rowModal center-content">
+          <textMirror>DeATh</textMirror>
+        </div>
+
+        <div class="rowModal center-content">
+          <img src="images/skull.png" class="dark-grey containSkull" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Fourth Mirror-->
+    <div class="modalMirror center-content" id="four">
+      <span class="closeMirror" onclick="hideElement('four')">&times;</span>
+      <div class="modal-mirror black">
+        <div class="rowModal center-content">
+          <textMirror>a r t s</textMirror>
+        </div>
+
+        <div class="rowModal center-content">
+          <img src="images/joker.png" class="contain-symbol blue" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Fifth Mirror-->
+    <div class="modalMirror center-content" id="five">
+      <span class="closeMirror" onclick="hideElement('five')">&times;</span>
+      <div class="modal-mirror black center-content">
+        <div class="rowModal center-content">
+          <textMirror>tRaP</textMirror>
+        </div>
+
+        <div class="rowModal center-content">
+          <img src="images/circus.png" class="contain-symbol light-grey" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Sixth Mirror-->
+    <div class="modalMirror center-content" id="six">
+      <span class="closeMirror" onclick="hideElement('six')">&times;</span>
+      <div class="modal-mirror black center-content">
+        <div class="rowModal center-content">
+          <textMirror>R. U. N.</textMirror>
+        </div>
+
+        <div class="rowModal center-content">
+          <img src="images/partyHat.png" class="contain-symbol purple" />
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <audio src="sounds/spookyM.mp3" type="audio/mp3" id="spooky"></audio>
+  <audio src="sounds/mirrors.mp3" type="audio/mp3" id="mirror"></audio>
+  <audio src="sounds/chestSound.mp3" type="audio/mp3" id="lockedBox"></audio>
+  <script src="script.js"></script>
+</html>
